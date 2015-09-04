@@ -15,28 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('login',function(){
-//   return view('login');
+// Authentication routes...
+Route::get('login', 'Auth\AuthController@getLogin');
+//Route::post('login', function(){
+//    return 'ThaoHoang';
 //});
-
-Route::get('list-users',function(){
-    return view('user.list-users');
-});
-
-Route::get('list-products',function(){
-    return view('product.list-products');
-});
-
-Route::get('/s/u/list-categories',function(){
-    return view('category.list-categories');
-});
-
-Route::get('login','Auth\AuthController@getLogin');
-
-Route::post('user/login','Auth\AuthController@postLogin');
-
-Route::get('user/logout','Auth\AuthController@getLogout');
-
-Route::get('Wrong',function(){
-    return 'Wrong';
-});
+Route::post('login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+//
+// Registration routes...
+//Route::get('auth/register', 'Auth\AuthController@getRegister');
+//Route::post('auth/register', 'Auth\AuthController@postRegister');

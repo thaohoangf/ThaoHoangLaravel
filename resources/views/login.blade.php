@@ -16,7 +16,7 @@
         <div class="loginHead">
             <img src="{{ URL::asset('img/logo.png') }}" alt="NTQ Solution Admin Control Panel" title="NTQ Solution Admin Control Panel"/>
         </div>
-        <form class="form-horizontal" action="user/login" method="POST">
+        <form class="form-horizontal" action="{{URL::asset('login')}}" method="POST">
             {!! csrf_field() !!}
             <div class="control-group">
                 <label for="inputUsername">Username</label>                
