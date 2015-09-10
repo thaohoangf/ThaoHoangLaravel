@@ -1,22 +1,22 @@
-<!-- resources/views/auth/login.blade.php -->
+@extends('layout.master')
 
-<form method="POST" action="{{URL::asset('login')}}">
-    {!! csrf_field() !!}
-    <div>
-        Email
-        <input type="text" name="username" value="">
-    </div>
+@section('title')
+    Login
+@stop
 
-    <div>
-        Password
-        <input type="password" name="password" id="password">
-    </div>
+@section('content')
+    <form action="{{URL::asset('login')}}" method="post" role="form">
+        {!! csrf_field() !!}
 
-    <div>
-        <input type="checkbox" name="remember"> Remember Me
-    </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" class="form-control" name="email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password">
 
-    <div>
-        <button type="submit">Login</button>
-    </div>
-</form>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+@stop
+

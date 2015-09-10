@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -23,6 +24,7 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
     protected $redirectPath = '/';
+    protected $redirectAfterLogout = 'login';
     protected $loginPath = '/';
     protected $username = 'username';
 

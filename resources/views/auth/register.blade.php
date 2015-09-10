@@ -1,29 +1,30 @@
-<!-- resources/views/auth/register.blade.php -->
+@extends('layout.master')
 
-<form method="POST" action="../auth/register">
-    {!! csrf_field() !!}
+@section('title')
+    Register
+@stop
 
-    <div>
-        Name
-        <input type="text" name="name" value="{{ old('name') }}">
-    </div>
+@section('content')
+    <form action="{{URL::asset('register')}}" method="post" role="form">
+    	{!! csrf_field() !!}
+    	<div class="form-group">
+    		<label for="">Name</label>
+    		<input type="text" class="form-control" name="name">
+    	</div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" class="form-control" name="email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+        <div class="form-group">
+            <label for="password_confirmation">Confirm</label>
+            <input type="password" class="form-control" name="password_confirmation">
+        </div>
+    
+    	<button type="submit" class="btn btn-primary">Register</button>
+    </form>
+@stop
 
-    <div>
-        Email
-        <input type="email" name="email" value="{{ old('email') }}">
-    </div>
-
-    <div>
-        Password
-        <input type="password" name="password">
-    </div>
-
-    <div>
-        Confirm Password
-        <input type="password" name="password_confirmation">
-    </div>
-
-    <div>
-        <button type="submit">Register</button>
-    </div>
-</form>

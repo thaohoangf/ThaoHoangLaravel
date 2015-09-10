@@ -24,7 +24,8 @@
                     <div class="clear"></div>
                 </div>
                 <div class="block-fluid">
-                    <form>
+                    <form action = "{{ asset('register') }}" method="post" role="form">
+                        {!! csrf_field() !!}
                     	<div class="row-form">
                             <div class="span3">Username:</div>
                             <div class="span9"><input type="text" placeholder="some text value..."/></div>
@@ -32,7 +33,7 @@
                         </div> 
                     	<div class="row-form">
                             <div class="span3">Email:</div>
-                            <div class="span9"><input type="text" placeholder="some text value..."/></div>
+                            <div class="span9"><input type="email" placeholder="some text value..."/></div>
                             <div class="clear"></div>
                         </div> 
                     	<div class="row-form">

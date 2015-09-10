@@ -15,14 +15,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Authentication routes...
-Route::get('login', 'Auth\AuthController@getLogin');
-//Route::post('login', function(){
-//    return 'ThaoHoang';
-//});
-Route::post('login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+get('home',[
+    'as' => 'home',
+    'uses' => 'HomeController@index']);
+
+get('add-user','Auth\AuthController@getRegister');
+post('add-user','Auth\AuthController@postRegister');
+
+get('login',['as' => 'login',
+            'uses' => 'Auth\AuthController@getLogin']);
+
+post('login','Auth\AuthController@postLogin');
+
+
+get('logout','Auth\AuthController@getLogout');
+
+get('list-user','HomeController@index');
+//Route::group('user', [
+//    'as'    => 'user::',
 //
-// Registration routes...
-//Route::get('auth/register', 'Auth\AuthController@getRegister');
-//Route::post('auth/register', 'Auth\AuthController@postRegister');
+//]);

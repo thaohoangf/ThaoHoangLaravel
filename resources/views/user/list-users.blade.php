@@ -1,16 +1,11 @@
 @extends('app')
+
+@section('link')
+       <li><a href="{{ URL::asset('list-users') }}">List Users</a></li>
+@stop
+
+
 @section('content')
-<div class="content">
-
-
-    <div class="breadLine">
-
-        <ul class="breadcrumb">
-            <li><a href="list-users.blade.php">List Users</a></li>
-        </ul>
-
-    </div>
-
     <div class="workplace">
 
         <div class="row-fluid">
@@ -33,7 +28,7 @@
                     <div class="clear"></div>
                 </div>
                 <div class="block-fluid table-sorting">
-                    <a href="add-user.blade.php" class="btn btn-add">Add User</a>
+                    <a href="add-user" class="btn btn-add">Add User</a>
                     <table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable_2">
                         <thead>
                         <tr>
@@ -47,113 +42,26 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td><input type="checkbox" name="checkbox"/></td>
-                            <td>1</td>
-                            <td>User 1</td>
-                            <td><span class="text-success">Activated</span></td>
-                            <td>15:00 05/10/2014</td>
-                            <td>15:00 05/10/2014</td>
-                            <td><a href="edit-user.blade.php" class="btn btn-info">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="checkbox"/></td>
-                            <td>2</td>
-                            <td>User 2</td>
-                            <td><span class="text-success">Activated</span></td>
-                            <td>15:00 05/10/2014</td>
-                            <td>15:00 05/10/2014</td>
-                            <td><a href="edit-user.blade.php" class="btn btn-info">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="checkbox"/></td>
-                            <td>3</td>
-                            <td>User 3</td>
-                            <td><span class="text-success">Activated</span></td>
-                            <td>15:00 05/10/2014</td>
-                            <td>15:00 05/10/2014</td>
-                            <td><a href="edit-user.blade.php" class="btn btn-info">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="checkbox"/></td>
-                            <td>4</td>
-                            <td>User 4</td>
-                            <td><span class="text-success">Activated</span></td>
-                            <td>15:00 05/10/2014</td>
-                            <td>15:00 05/10/2014</td>
-                            <td><a href="edit-user.blade.php" class="btn btn-info">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="checkbox"/></td>
-                            <td>5</td>
-                            <td>User 6</td>
-                            <td><span class="text-error">Deactivate</span></td>
-                            <td>15:00 05/10/2014</td>
-                            <td>15:00 05/10/2014</td>
-                            <td><a href="edit-user.blade.php" class="btn btn-info">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="checkbox"/></td>
-                            <td>6</td>
-                            <td>User 6</td>
-                            <td><span class="text-success">Activated</span></td>
-                            <td>15:00 05/10/2014</td>
-                            <td>15:00 05/10/2014</td>
-                            <td><a href="edit-user.blade.php" class="btn btn-info">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="checkbox"/></td>
-                            <td>7</td>
-                            <td>User 7</td>
-                            <td><span class="text-error">Deactivate</span></td>
-                            <td>15:00 05/10/2014</td>
-                            <td>15:00 05/10/2014</td>
-                            <td><a href="edit-user.blade.php" class="btn btn-info">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="checkbox"/></td>
-                            <td>8</td>
-                            <td>User 8</td>
-                            <td><span class="text-success">Activated</span></td>
-                            <td>15:00 05/10/2014</td>
-                            <td>15:00 05/10/2014</td>
-                            <td><a href="edit-user.blade.php" class="btn btn-info">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="checkbox"/></td>
-                            <td>9</td>
-                            <td>User 9</td>
-                            <td><span class="text-error">Deactivate</span></td>
-                            <td>15:00 05/10/2014</td>
-                            <td>15:00 05/10/2014</td>
-                            <td><a href="edit-user.blade.php" class="btn btn-info">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="checkbox"/></td>
-                            <td>10</td>
-                            <td>User 10</td>
-                            <td><span class="text-success">Activated</span></td>
-                            <td>15:00 05/10/2014</td>
-                            <td>15:00 05/10/2014</td>
-                            <td><a href="edit-user.blade.php" class="btn btn-info">Edit</a></td>
-                        </tr>
+                        @foreach($users as $user)
+                            <tr>
+                                <td><input type="checkbox" name="checkbox"/></td>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td><span class="text-success">Activated</span></td>
+                                <td>{{ $user->created_at }}</td>
+                                <td>{{ $user->updated_at }}</td>
+                                <td><a href="edit-user.blade.php" class="btn btn-info">Edit</a></td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                     <div class="bulk-action">
                         <a href="#" class="btn btn-success">Activate</a>
                         <a href="#" class="btn btn-danger">Delete</a>
                     </div><!-- /bulk-action-->
-                    <div class="dataTables_paginate">
-                        <a class="first paginate_button paginate_button_disabled" href="#">First</a>
-                        <a class="previous paginate_button paginate_button_disabled" href="#">Previous</a>
-                        <span>
-                            <a class="paginate_active" href="#">1</a>
-                            <a class="paginate_button" href="#">2</a>
-                        </span>
-                        <a class="next paginate_button" href="#">Next</a>
-                        <a class="last paginate_button" href="#">Last</a>
-                    </div>
+                    {!! $users->render() !!}
                     <div class="clear"></div>
+
                 </div>
             </div>
 

@@ -35,7 +35,7 @@
         </div>
         <ul class="control">
             <li><span class="icon-cog"></span> <a href="edit-user.blade.php">Update Profile</a></li>
-            <li><span class="icon-share-alt"></span> <a href="../login.blade.php">Logout</a></li>
+            <li><span class="icon-share-alt"></span> <a href="{{ URL::asset('logout') }}">Logout</a></li>
         </ul>
     </div>
 
@@ -58,8 +58,16 @@
     </ul>
 
 </div>
+<div class="content">
 
-  @yield('content')
 
+    <div class="breadLine">
+
+        <ul class="breadcrumb">
+            @yield('link')
+        </ul>
+        @yield('content')
+    </div>
+</div>
 </body>
 </html>
