@@ -19,8 +19,16 @@ get('home',[
     'as' => 'home',
     'uses' => 'HomeController@index']);
 
-get('add-user','Auth\AuthController@getRegister');
-post('add-user','Auth\AuthController@postRegister');
+get('add-user','UserController@getAddUser');
+post('add-user','UserController@postAddUser');
+
+//get('edit-user/{id}',function($id){
+//    echo $id;
+//});
+get('edit-user/{id}','UserController@getEditUser');
+
+post('edit-user','UserController@postEditUser');
+//post('edit-user/{id}','UserController@postEditUser');
 
 get('login',['as' => 'login',
             'uses' => 'Auth\AuthController@getLogin']);

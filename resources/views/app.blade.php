@@ -41,17 +41,17 @@
 
     <ul class="navigation">
         <li>
-            <a href="../category/list-categories.blade.php">
+            <a href="list-category">
                 <span class="isw-grid"></span><span class="text">Categories</span>
             </a>
         </li>
         <li>
-            <a href="../product/list-products.blade.php">
+            <a href="list-product">
                 <span class="isw-list"></span><span class="text">Products</span>
             </a>
         </li>
         <li>
-            <a href="list-users.blade.php">
+            <a href="list-user">
                 <span class="isw-user"></span><span class="text">Users</span>
             </a>
         </li>
