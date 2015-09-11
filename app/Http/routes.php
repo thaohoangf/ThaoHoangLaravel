@@ -19,8 +19,9 @@ get('home',[
     'as' => 'home',
     'uses' => 'HomeController@index']);
 
-get('add-user','Auth\AuthController@getRegister');
-post('add-user','Auth\AuthController@postRegister');
+get('add-user','UserController@getAddUser');
+
+//post('add-user','Auth\AuthController@postRegister');
 
 get('login',['as' => 'login',
             'uses' => 'Auth\AuthController@getLogin']);
