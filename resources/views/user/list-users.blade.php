@@ -47,10 +47,14 @@
                                 <td><input type="checkbox" name="checkbox"/></td>
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
-                                <td><span class="text-success">Activated</span></td>
+                                @if($user->activate == 1)
+                                    <td><span class="text-success">Activated</span></td>
+                                @else
+                                    <td><span class="text-error">Deactivate</span></td>
+                                @endif
                                 <td>{{ $user->created_at }}</td>
                                 <td>{{ $user->updated_at }}</td>
-                                <td><a href="edit-user.blade.php" class="btn btn-info">Edit</a></td>
+                                <td><a href="{{ asset('edit-user').'/'.$user->id }}" class="btn btn-info">Edit</a></td>
                             </tr>
                         @endforeach
                         </tbody>

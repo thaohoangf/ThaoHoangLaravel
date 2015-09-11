@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use Repo\User\UserInterface;
 use App\Http\Requests;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Pagination\LengthAwarePaginator;
-use App\Http\Controllers\Controller;
+//use Illuminate\Pagination\LengthAwarePaginator;
+use App\Http\Controllers;
 
 class HomeController extends Controller
 {
@@ -19,9 +19,12 @@ class HomeController extends Controller
     {
         $this->user = $user;
     }
+
     public function index()
     {
         $infor = $this->user->getAll();
         return view('user.list-users')->with('users',$infor);
     }
+
+
 }
