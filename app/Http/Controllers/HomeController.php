@@ -19,12 +19,6 @@ class HomeController extends Controller
     {
         $this->user = $user;
     }
-
-    public function getRegister()
-    {
-        return 'Thao Honag';
-    }
-
     public function index()
     {
         $infor = $this->user->getAll();

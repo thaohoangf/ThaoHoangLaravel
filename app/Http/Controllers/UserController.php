@@ -16,9 +16,4 @@ class UserController extends Controller
         dd($user);
 //        return view('user.list-users')->with('users', $user);
     }
-
-    public function getAddUser()
-    {
-        return view('user.add-user');
-    }
 }
