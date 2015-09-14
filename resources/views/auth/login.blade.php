@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-    <form action="{{URL::asset('login')}}" method="post" role="form">
+    <form action="{{ asset('login')}}" method="post" role="form">
         {!! csrf_field() !!}
 
         <div class="form-group">

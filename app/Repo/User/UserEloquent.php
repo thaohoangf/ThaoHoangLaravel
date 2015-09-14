@@ -4,7 +4,6 @@ use App\User;
 
 class UserEloquent implements UserInterface
 {
-//    protected $perpage;
     protected $user;
 
     public function __construct(User $user)
@@ -38,7 +37,7 @@ class UserEloquent implements UserInterface
         ]);
     }
 
-    public function update($user)
+    public function update($user, $id)
     {
         if(isset($user['avatar'])){
             if(file_exists('upload/'.$user['username'].'_avatar.jpg')) {
@@ -46,5 +45,14 @@ class UserEloquent implements UserInterface
             }
             $user['avatar']->move('upload',$user['username'].'_avatar.jpg');
         }
+        return User::where('id',$id)
+            -> update([
+                'name' => $user['username'],
+                'email' => $user['email'],
+                'password' => bcrypt($user['password']),
+                'activate' => $user['activate'],
+                'remember_token' => $user['_token'],
+                'image' => $user['username'].'_avatar'
+            ]);
     }
 }

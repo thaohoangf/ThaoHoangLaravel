@@ -41,17 +41,17 @@
 
     <ul class="navigation">
         <li>
-            <a href="list-category">
+            <a href="{{ asset('list-category') }}">
                 <span class="isw-grid"></span><span class="text">Categories</span>
             </a>
         </li>
         <li>
-            <a href="list-product">
+            <a href="{{ asset('list-product') }}">
                 <span class="isw-list"></span><span class="text">Products</span>
             </a>
         </li>
         <li>
-            <a href="list-user">
+            <a href="{{ asset('list-user') }}">
                 <span class="isw-user"></span><span class="text">Users</span>
             </a>
         </li>

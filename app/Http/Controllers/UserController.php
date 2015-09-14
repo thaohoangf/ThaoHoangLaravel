@@ -29,8 +29,8 @@ class UserController extends Controller
 
     public function postAddUser(UserRequest $request)
     {
-//        $this->user->create($request->all());
-//        return redirect('home');
+        $this->user->create($request->all());
+        return redirect('home');
     }
 
     public function getEditUser($id)
@@ -39,8 +39,9 @@ class UserController extends Controller
         return view('user.edit-user')->with('userInfor',$infor);
     }
 
-    public function postEditUser(UserRequest $request)
+    public function postEditUser(UserRequest $request, $id)
     {
-//        dd($request);
+        $this->user->update($request->all(), $id);
+        return redirect('list-user');
     }
 }
