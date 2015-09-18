@@ -46,4 +46,6 @@ get('logout','Auth\AuthController@getLogout');
 get('list-user',['as' => 'list-user',
                  'uses' => 'HomeController@index']);
 
-post('search-user','UserController@searchUser');
+post('search-user',function(){
+    return 'Thao Hoang';
+});
