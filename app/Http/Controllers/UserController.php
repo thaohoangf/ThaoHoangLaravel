@@ -62,4 +62,9 @@ class UserController extends Controller
             return redirect('list-user?page=' . $page);
         }
     }
+
+    public function searchUser()
+    {
+        $this->user->search();
+    }
 }
