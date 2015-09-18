@@ -34,15 +34,16 @@ class UserController extends Controller
         return redirect('list-user?page='.$lastPage);
     }
 
-    public function getEditUser($id)
+    public function getEditUser($id,$page)
     {
         $infor = $this->user->getByID($id);
-        return view('user.edit-user')->with('userInfor',$infor);
+        return view('user.edit-user')->with(['userInfor'=> $infor,
+                                            'page' => $page]);
     }
 
-    public function postEditUser(UserRequest $request, $id)
+    public function postEditUser(UserRequest $request, $id, $page)
     {
         $this->user->update($request->all(), $id);
-        return redirect('list-user');
+        return redirect('list-user?page='.$page);
     }
 }

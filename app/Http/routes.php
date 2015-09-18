@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 get('home',[
     'as' => 'home',
-    'uses' => 'HomeController@index']);
+    'uses' => 'UserController@index']);
 
 get('add-user','UserController@getAddUser');
 post('add-user','UserController@postAddUser');
@@ -25,9 +25,9 @@ post('add-user','UserController@postAddUser');
 //get('edit-user/{id}',function($id){
 //    echo $id;
 //});
-get('edit-user/{id}','UserController@getEditUser');
+get('edit-user/{id}/{page}','UserController@getEditUser');
 
-post('edit-user/{id}','UserController@postEditUser');
+post('edit-user/{id}/{page}','UserController@postEditUser');
 //post('edit-user/{id}','UserController@postEditUser');
 
 get('login',['as' => 'login',

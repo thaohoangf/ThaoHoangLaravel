@@ -27,12 +27,14 @@
 
                     <div class="clear"></div>
                 </div>
+                <form action="{{ asset('user').'/'.$users->currentPage() }}" method="post">
+                    {!! csrf_field() !!}
                 <div class="block-fluid table-sorting">
                     <a href="add-user" class="btn btn-add">Add User</a>
                     <table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable_2">
                         <thead>
                         <tr>
-                            <th><input type="checkbox" id="checkAll"/></th>
+                            <th><input type="checkbox"/></th>
                             <th width="15%" class="sorting"><a href="#">ID</a></th>
                             <th width="35%" class="sorting"><a href="#">Username</a></th>
                             <th width="20%" class="sorting"><a href="#">Activate</a></th>
@@ -54,19 +56,21 @@
                                 @endif
                                 <td>{{ $user->created_at }}</td>
                                 <td>{{ $user->updated_at }}</td>
-                                <td><a href="{{ asset('edit-user').'/'.$user->id }}" class="btn btn-info">Edit</a></td>
+                                <td><a href="{{ asset('edit-user').'/'.$user->id.'/'.$users->currentPage() }}" class="btn btn-info">Edit</a></td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                     <div class="bulk-action">
-                        <a href="#" class="btn btn-success">Activate</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                        <input type="submit" class="btn btn-success" name="check" value=" Activate"/>
+                        <input type="submit" class="btn btn-danger"  name="check" value="Delete"/>
                     </div><!-- /bulk-action-->
                     {!! $users->render() !!}
+{{--                    {{ $users->currentPage() }}--}}
                     <div class="clear"></div>
 
                 </div>
+                </form>
             </div>
 
         </div>
