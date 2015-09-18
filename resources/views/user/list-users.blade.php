@@ -27,12 +27,14 @@
 
                     <div class="clear"></div>
                 </div>
+                <form action="{{ asset('user') }}" method="post">
+                {!! csrf_field() !!}
                 <div class="block-fluid table-sorting">
-                    <a href="add-user" class="btn btn-add">Add User</a>
+                    <a href="{{ asset('add-user') }}" class="btn btn-add">Add User</a>
                     <table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable_2">
                         <thead>
                         <tr>
-                            <th><input type="checkbox" id="checkAll"/></th>
+                            <th><input type="checkbox"/></th>
                             <th width="15%" class="sorting"><a href="#">ID</a></th>
                             <th width="35%" class="sorting"><a href="#">Username</a></th>
                             <th width="20%" class="sorting"><a href="#">Activate</a></th>
@@ -44,7 +46,7 @@
                         <tbody>
                         @foreach($users as $user)
                             <tr>
-                                <td><input type="checkbox" name="checkbox"/></td>
+                                <td><input type="checkbox" name="checkbox[]" value="{{ $user->id }}"/></td>
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 @if($user->activate == 1)
@@ -60,19 +62,28 @@
                         </tbody>
                     </table>
                     <div class="bulk-action">
-                        <a href="#" class="btn btn-success">Activate</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                        <input type="button" class="btn btn-success" name="activate" value="Activate">
+                        <input type="button" class="btn btn-danger" name="delete" value="Delete">
                     </div><!-- /bulk-action-->
                     {!! $users->render() !!}
                     <div class="clear"></div>
-
                 </div>
+                </form>
             </div>
-
         </div>
         <div class="dr"><span></span></div>
 
     </div>
 
 </div>
+    <script>
+        var input = document.getElementsByTagName('input');
+        var selectAll = input[1];
+        selectAll.onclick = function(){
+            var state = (selectAll.checked) ? true : false;
+            for (var i = 2; i < input.length; i++) {
+                input[i].checked = state;
+            }
+        };
+    </script>
 @stop
