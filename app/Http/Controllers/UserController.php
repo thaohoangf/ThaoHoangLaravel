@@ -44,4 +44,16 @@ class UserController extends Controller
         $this->user->update($request->all(), $id);
         return redirect('list-user');
     }
+
+    public function deleteOrActivate(Request $request)
+    {
+        if($request->get('check') == 'Activate'){
+            $this->user->activate($request->get('checkbox'));
+            return redirect('list-user');
+        }
+        elseif($request->get('check') == 'Delete'){
+            $this->user->delete($request->get('checkbox'));
+            return redirect('list-user');
+        }
+    }
 }

@@ -62,8 +62,8 @@
                         </tbody>
                     </table>
                     <div class="bulk-action">
-                        <input type="button" class="btn btn-success" name="activate" value="Activate">
-                        <input type="button" class="btn btn-danger" name="delete" value="Delete">
+                        <input type="submit" class="btn btn-success" name="check" value="Activate">
+                        <input type="submit" class="btn btn-danger" name="check" value="Delete">
                     </div><!-- /bulk-action-->
                     {!! $users->render() !!}
                     <div class="clear"></div>
@@ -78,7 +78,7 @@
 </div>
     <script>
         var input = document.getElementsByTagName('input');
-        var selectAll = input[1];
+        var selectAll = input[2];
         selectAll.onclick = function(){
             var state = (selectAll.checked) ? true : false;
             for (var i = 2; i < input.length; i++) {

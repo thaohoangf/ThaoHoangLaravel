@@ -26,6 +26,8 @@ post('add-user','UserController@postAddUser');
 get('edit-user/{id}','UserController@getEditUser');
 post('edit-user/{id}','UserController@postEditUser');
 
+post('user','UserController@deleteOrActivate');
+
 get('login',['as' => 'login',
             'uses' => 'Auth\AuthController@getLogin']);
 post('login','Auth\AuthController@postLogin');
