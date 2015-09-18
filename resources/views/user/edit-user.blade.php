@@ -61,10 +61,12 @@
                             <div class="span9">
                                 <select name="activate">
                                     @if($user->activate == '1')
-                                        <option value="1">Activate</option>
-                                    @elseif($user->activate == '2')
+                                        <option value="1" selected>Activate</option>
                                         <option value="2">Deactivate</option>
-                                    @else
+                                        <option value="0">choose a option...</option>
+                                    @elseif($user->activate == '2')
+                                        <option value="1" selected>Activate</option>
+                                        <option value="2" selected>Deactivate</option>
                                         <option value="0">choose a option...</option>
                                     @endif
 
