@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Repo\User\UserInterface;
 use App\Http\Requests;
 use App\Http\Requests\UserRequest;
-use Illuminate\Support\Facades\Validator;
+
 class UserController extends Controller
 {
     protected $user;
