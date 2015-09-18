@@ -37,6 +37,7 @@ class UserController extends Controller
     public function getEditUser($id,$page)
     {
         $infor = $this->user->getByID($id);
+<<<<<<< HEAD
         return view('user.edit-user')->with(['userInfor'=> $infor,
                                             'page' => $page]);
     }
@@ -45,5 +46,32 @@ class UserController extends Controller
     {
         $this->user->update($request->all(), $id);
         return redirect('list-user?page='.$page);
+=======
+        return view('user.edit-user')->with(['userInfor' => $infor,
+                                            'page' => $page]);
+    }
+
+    public function postEditUser(UserRequest $request, $id,$page)
+    {
+        $this->user->update($request->all(), $id);
+        return redirect('list-user?page='.$page);
+    }
+
+    public function deleteOrActivate(Request $request,$page)
+    {
+        if($request->get('check') == 'Activate'){
+            $this->user->activate($request->get('checkbox'));
+            return redirect('list-user?page='.$page);
+        }
+
+        elseif($request->get('check') == 'Delete'){
+            $this->user->delete($request->get('checkbox'));
+            if($this->user->getAll()->lastPage() < $page) {
+                $page--;
+            }
+            return redirect('list-user?page=' . $page);
+        }
+
+>>>>>>> feature/delete_activate
     }
 }

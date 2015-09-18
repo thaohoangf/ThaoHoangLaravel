@@ -55,4 +55,22 @@ class UserEloquent implements UserInterface
                 'image' => $user['username'].'_avatar'
             ]);
     }
+
+    public function delete($ids)
+    {
+        foreach($ids as $id)
+        {
+            User::where('id',$id)
+                ->delete();
+        }
+    }
+
+    public function activate($ids)
+    {
+        foreach($ids as $id)
+        {
+            User::where('id',$id)
+                ->update(['activate' => 1]);
+        }
+    }
 }
