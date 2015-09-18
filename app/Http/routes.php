@@ -47,7 +47,6 @@ get('list-user',['as' => 'list-user',
                  'uses' => 'HomeController@index']);
 
 get('checkout',function(){
-    return 'add-user';
 });
 
 //Route::group('user', [
