@@ -37,21 +37,11 @@ class UserController extends Controller
     public function getEditUser($id,$page)
     {
         $infor = $this->user->getByID($id);
-<<<<<<< HEAD
         return view('user.edit-user')->with(['userInfor'=> $infor,
                                             'page' => $page]);
     }
 
     public function postEditUser(UserRequest $request, $id, $page)
-    {
-        $this->user->update($request->all(), $id);
-        return redirect('list-user?page='.$page);
-=======
-        return view('user.edit-user')->with(['userInfor' => $infor,
-                                            'page' => $page]);
-    }
-
-    public function postEditUser(UserRequest $request, $id,$page)
     {
         $this->user->update($request->all(), $id);
         return redirect('list-user?page='.$page);
@@ -71,7 +61,5 @@ class UserController extends Controller
             }
             return redirect('list-user?page=' . $page);
         }
-
->>>>>>> feature/delete_activate
     }
 }

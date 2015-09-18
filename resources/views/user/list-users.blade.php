@@ -28,11 +28,7 @@
                     <div class="clear"></div>
                 </div>
                 <form action="{{ asset('user').'/'.$users->currentPage() }}" method="post">
-<<<<<<< HEAD
                     {!! csrf_field() !!}
-=======
-                {!! csrf_field() !!}
->>>>>>> feature/delete_activate
                 <div class="block-fluid table-sorting">
                     <a href="{{ asset('add-user') }}" class="btn btn-add">Add User</a>
                     <table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable_2">
@@ -66,16 +62,10 @@
                         </tbody>
                     </table>
                     <div class="bulk-action">
-<<<<<<< HEAD
                         <input type="submit" class="btn btn-success" name="check" value=" Activate"/>
                         <input type="submit" class="btn btn-danger"  name="check" value="Delete"/>
-=======
-                        <input type="submit" class="btn btn-success" name="check" value="Activate">
-                        <input type="submit" class="btn btn-danger" name="check" value="Delete">
->>>>>>> feature/delete_activate
                     </div><!-- /bulk-action-->
                     {!! $users->render() !!}
-{{--                    {{ $users->currentPage() }}--}}
                     <div class="clear"></div>
                 </div>
                 </form>
