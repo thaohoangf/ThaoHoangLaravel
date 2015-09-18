@@ -35,7 +35,7 @@ post('edit-user/{id}/{page}','UserController@postEditUser');
 
 post('user/{page}','UserController@deleteOrActivate');
 
-
+post('search-user','UserController@searchUser');
 get('login',['as' => 'login',
             'uses' => 'Auth\AuthController@getLogin']);
 post('login','Auth\AuthController@postLogin');
@@ -45,10 +45,3 @@ get('logout','Auth\AuthController@getLogout');
 
 get('list-user',['as' => 'list-user',
                  'uses' => 'HomeController@index']);
-
-post('search-user','UserController@searchUser');
-
-//Route::group('user', [
-//    'as'    => 'user::',
-//
-//]);

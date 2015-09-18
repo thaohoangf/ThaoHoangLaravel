@@ -63,9 +63,4 @@ class UserController extends Controller
         }
     }
 
-    public function searchUser(Request $request)
-    {
-        dd($request->all());
-//        $this->user->search();
-    }
 }

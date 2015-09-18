@@ -73,4 +73,5 @@ class UserEloquent implements UserInterface
                 ->update(['activate' => 1]);
         }
     }
+
 }
