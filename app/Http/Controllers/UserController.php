@@ -51,6 +51,7 @@ class UserController extends Controller
             $this->user->activate($request->get('checkbox'));
             return redirect('list-user');
         }
+
         elseif($request->get('check') == 'Delete'){
             $this->user->delete($request->get('checkbox'));
             return redirect('list-user');
