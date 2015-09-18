@@ -73,4 +73,9 @@ class UserEloquent implements UserInterface
                 ->update(['activate' => 1]);
         }
     }
+
+    public function searchUser($value)
+    {
+
+    }
 }
