@@ -21,7 +21,7 @@
                 </div>
                 <div class="block-fluid">
                     @foreach($userInfor as $user)
-                    <form method="post" enctype="multipart/form-data" action="{{ asset('edit-user/'.$user->id) }}">
+                    <form method="post" enctype="multipart/form-data" action="{{ asset('edit-user/'.$user->id.'/'.$page) }}">
                         {!! csrf_field() !!}
                     	<div class="row-form">
                             <div class="span3">Username:</div>

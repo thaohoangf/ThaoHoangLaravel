@@ -30,31 +30,37 @@ class UserController extends Controller
     public function postAddUser(UserRequest $request)
     {
         $this->user->create($request->all());
-        return redirect('home');
+        $lastPage = $this->user->getAll()->lastPage();
+        return redirect('list-user?page='.$lastPage);
     }
 
-    public function getEditUser($id)
+    public function getEditUser($id,$page)
     {
         $infor = $this->user->getByID($id);
-        return view('user.edit-user')->with('userInfor',$infor);
+        return view('user.edit-user')->with(['userInfor' => $infor,
+                                            'page' => $page]);
     }
 
-    public function postEditUser(UserRequest $request, $id)
+    public function postEditUser(UserRequest $request, $id,$page)
     {
         $this->user->update($request->all(), $id);
-        return redirect('list-user');
+        return redirect('list-user?page='.$page);
     }
 
-    public function deleteOrActivate(Request $request)
+    public function deleteOrActivate(Request $request,$page)
     {
         if($request->get('check') == 'Activate'){
             $this->user->activate($request->get('checkbox'));
-            return redirect('list-user');
+            return redirect('list-user?page='.$page);
         }
 
         elseif($request->get('check') == 'Delete'){
             $this->user->delete($request->get('checkbox'));
-            return redirect('list-user');
+            if($this->user->getAll()->lastPage() < $page) {
+                $page--;
+            }
+            return redirect('list-user?page=' . $page);
         }
+
     }
 }

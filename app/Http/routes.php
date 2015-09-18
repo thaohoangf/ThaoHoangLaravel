@@ -23,10 +23,10 @@ get('add-user','UserController@getAddUser');
 post('add-user','UserController@postAddUser');
 
 
-get('edit-user/{id}','UserController@getEditUser');
-post('edit-user/{id}','UserController@postEditUser');
+get('edit-user/{id}/{page}','UserController@getEditUser');
+post('edit-user/{id}/{page}','UserController@postEditUser');
 
-post('user','UserController@deleteOrActivate');
+post('user/{page}','UserController@deleteOrActivate');
 
 get('login',['as' => 'login',
             'uses' => 'Auth\AuthController@getLogin']);

@@ -27,7 +27,7 @@
 
                     <div class="clear"></div>
                 </div>
-                <form action="{{ asset('user') }}" method="post">
+                <form action="{{ asset('user').'/'.$users->currentPage() }}" method="post">
                 {!! csrf_field() !!}
                 <div class="block-fluid table-sorting">
                     <a href="{{ asset('add-user') }}" class="btn btn-add">Add User</a>
@@ -56,7 +56,7 @@
                                 @endif
                                 <td>{{ $user->created_at }}</td>
                                 <td>{{ $user->updated_at }}</td>
-                                <td><a href="{{ asset('edit-user').'/'.$user->id }}" class="btn btn-info">Edit</a></td>
+                                <td><a href="{{ asset('edit-user').'/'.$user->id.'/'.$users->currentPage() }}" class="btn btn-info">Edit</a></td>
                             </tr>
                         @endforeach
                         </tbody>
