@@ -46,8 +46,7 @@ get('logout','Auth\AuthController@getLogout');
 get('list-user',['as' => 'list-user',
                  'uses' => 'HomeController@index']);
 
-get('checkout',function(){
-});
+post('search-user','UserController@searchUser');
 
 //Route::group('user', [
 //    'as'    => 'user::',
