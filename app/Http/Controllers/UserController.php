@@ -30,7 +30,8 @@ class UserController extends Controller
     public function postAddUser(UserRequest $request)
     {
         $this->user->create($request->all());
-        return redirect('home');
+        $lastPage = $this->user->getAll()->lastPage();
+        return redirect('list-user?page='.$lastPage);
     }
 
     public function getEditUser($id)
