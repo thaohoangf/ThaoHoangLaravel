@@ -8,5 +8,6 @@ interface UserInterface
     public function update($user, $id);
     public function delete($id);
     public function activate($id);
+    public function searchUser($value);
 }
 
