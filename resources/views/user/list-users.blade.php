@@ -10,8 +10,8 @@
 
         <div class="row-fluid">
             <div class="span12 search">
-                <form action="{{ asset('search-user') }}" method="post">
-                    {!! csrf_field() !!}
+                <form action="{{ asset('search-user') }}" method="get">
+                    {{--{!! csrf_field() !!}--}}
                     <input type="text" class="span11" placeholder="Some text for search..." name="search"/>
                     <input class="btn span1" type="submit" value="Search"/>
                 </form>

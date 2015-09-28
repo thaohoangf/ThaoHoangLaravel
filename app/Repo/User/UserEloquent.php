@@ -77,8 +77,7 @@ class UserEloquent implements UserInterface
     public function searchUser($value)
     {
         $user = User::where('name', 'LIKE','%'.$value.'%');
-        $user = $user->paginate(2);
+        $user = $user->paginate(6);
         return $user;
-//        dd($infor);
     }
 }
