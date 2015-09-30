@@ -35,9 +35,8 @@ post('edit-user/{id}/{page}','UserController@postEditUser');
 
 post('user/{page}','UserController@deleteOrActivate');
 
-get('search-user?search={value}',function($value){
-    dd($value);
-});
+get('search-user','UserController@searchUser');
+
 get('login',['as' => 'login',
             'uses' => 'Auth\AuthController@getLogin']);
 post('login','Auth\AuthController@postLogin');

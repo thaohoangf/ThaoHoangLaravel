@@ -13,7 +13,11 @@ class UserEloquent implements UserInterface
 
     public function getAll()
     {
-        return User::paginate(2);
+        $user = User::paginate(2);
+
+        $user->setPath('home');
+//        dd($user->render());
+        return $user;
     }
 
     public function getByID($id)
@@ -77,7 +81,10 @@ class UserEloquent implements UserInterface
     public function searchUser($value)
     {
         $user = User::where('name', 'LIKE','%'.$value.'%');
-        $user = $user->paginate(6);
+        $user = $user->paginate(2);
+        $user->setPath('search-user?search=a');
+//        dd($user->nextPageUrl());
         return $user;
+        dd($user);
     }
 }
